@@ -13,11 +13,9 @@ int non_inte(int ac, char *av[])
 	char *lineptr;
 	size_t len;
 	char *input_buffer;
-	char *path;
 
 	lineptr = NULL;
 	len = 0;
-	path = (char *)err_malloc(sizeof(char) * 20);
 	getline(&lineptr, &len, stdin);
 	input_buffer = eof(lineptr);
 	arguments = get_tokens(input_buffer);
@@ -30,8 +28,7 @@ int non_inte(int ac, char *av[])
 		fatal(av[0]);
 		exit(-1);
 	}
-	path = arguments[0];
-	if (execute(path, arguments, NULL) == -1)
+	if (execute(arguments[0], arguments, NULL) == -1)
 	{
 		perror(av[0]);
 	}
