@@ -1,3 +1,0 @@
-#
-ALX Simple Shell Project
-#
