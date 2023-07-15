@@ -12,9 +12,11 @@ void free_tokens(char **inp)
 {
 	int i;
 
-	for (i = 0; inp[i] != NULL; i++)
+	i = 0;
+	while (inp[i] != NULL)
 	{
 		free(inp[i]);
+		i++;
 	}
 	free(inp);
 }

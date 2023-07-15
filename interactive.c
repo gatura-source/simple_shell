@@ -30,16 +30,12 @@ int inte(int ac, char *av[])
 		{
 			continue;
 		}
-		if (_argslen(arguments) != 1)
-		{
-			fatal(av[0]);
-			continue;
-		}
 		if (execute(arguments[0], arguments, NULL) == -1)
 		{
 			perror(av[0]);
 		}
 	}
+	free(lineptr);
 	free_tokens(arguments);
 	ac = 0;
 	return (ac);
