@@ -13,6 +13,8 @@
 #include <sys/types.h>
 #include <stdio.h>
 
+extern char **environ;
+
 int _putchar(char c);
 int _puts(const char *);
 int inte(int, char **);
@@ -29,5 +31,9 @@ int execute(char *, char **, char **);
 char **get_tokens(char *);
 void free_tokens(char **);
 void *err_malloc(unsigned int);
-
+char **_getenv(char *);
+char *_strchr(const char *, int);
+char *_path(char *command);
+char *_basename(char *path);
+int _strcmp(char *str1, char *str2);
 #endif

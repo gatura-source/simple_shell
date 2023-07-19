@@ -14,6 +14,7 @@ int inte(int ac, char *av[])
 	char *lineptr;
 	size_t len;
 	char *input_buffer;
+	char *path;
 
 	lineptr = NULL;
 	len = 0;
@@ -30,11 +31,16 @@ int inte(int ac, char *av[])
 		{
 			continue;
 		}
-		if (execute(arguments[0], arguments, NULL) == -1)
+		path = _path(arguments[0]);
+		if (path != NULL)
 		{
-			perror(av[0]);
+			if (execute(path, arguments, NULL) == -1)
+			{
+				perror(av[0]);
+			}
 		}
 	}
+	free(path);
 	free(lineptr);
 	free_tokens(arguments);
 	ac = 0;
