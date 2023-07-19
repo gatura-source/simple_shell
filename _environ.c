@@ -1,5 +1,5 @@
 #include "shell.h"
-  
+
 /**
  * _env - like env()
  *
@@ -10,13 +10,12 @@
 
 int _env(void)
 {
+	int i;
 
-        int i;
-
-        for (i = 0; environ[i] != NULL; i++)
-        {
-                _puts(environ[i]);
+	for (i = 0; environ[i] != NULL; i++)
+	{
+		_puts(environ[i]);
 		_putchar('\n');
-        }
-        return (0);
+	}
+	return (0);
 }

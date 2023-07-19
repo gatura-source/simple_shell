@@ -20,7 +20,7 @@ int _puts(const char *);
 int inte(int, char **);
 int non_inte(int, char **);
 void fatal(char *);
-void type_prompt();
+void type_prompt(void);
 char *eof(char *);
 char *_strcpy(char *, char *);
 char *_strncat(char *, const char *, int);
@@ -37,4 +37,5 @@ char *_path(char *command);
 char *_basename(char *path);
 int _strcmp(char *str1, char *str2);
 int _env(void);
+void *_memset(void *, int, size_t);
 #endif

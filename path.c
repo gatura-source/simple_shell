@@ -31,24 +31,21 @@ char *_path(char *command)
 	_strcpy(p, path);
 	dir = strtok(p, ":");
 	cmd_path = (char *)err_malloc(sizeof(char) * 100);
-
 	while (dir != NULL)
 	{
 		_strcpy(cmd_path, dir);
 		_strncat(cmd_path, "/", 1);
 		_strncat(cmd_path, command, _strlen(command));
-		/**
-		 * check if command exists
-		 */
 		if (access(cmd_path, X_OK) == 0)
 		{
 			c = cmd_path;
 			return (c);
 		}
 		dir = strtok(NULL, ":");
-		bzero(cmd_path, 100);
+		_memset(cmd_path, 0, 100);
 	}
 	free(p);
+	free(path);
 	free(cmd_path);
 	return (c);
 }

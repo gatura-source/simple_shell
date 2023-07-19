@@ -17,7 +17,6 @@ int non_inte(int ac, char *av[])
 
 	lineptr = NULL;
 	len = 0;
-	path = (char *)err_malloc(sizeof(char) * 10);
 	if (getline(&lineptr, &len, stdin) == -1)
 	{
 		fatal(av[0]);
