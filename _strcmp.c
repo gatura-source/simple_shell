@@ -20,17 +20,17 @@ int _strcmp(char *str1, char *str2)
 	len2 = _strlen(str2);
 	if (len1 != len2)
 	{
-		return (0);
+		return (1);
 	}
 	for (i = 0; i < len1; i++)
 	{
 		if ((str1[i] - str2[i]) == 0)
 		{
-			ret = 1;
+			ret += 0;
 		}
 		else
 		{
-			ret = 0;
+			ret += (str1[i] - str2[i]);
 		}
 	}
 	return (ret);
