@@ -20,6 +20,10 @@ char *_path(char *command)
 	{
 		exit(0);
 	}
+	if (_strcmp(command, "env") == 0)
+	{
+		_env();
+	}
 	c = (char *)err_malloc(sizeof(char) * 10);
 	path = (char *)err_malloc(sizeof(char) * 10);
 	path = getenv("PATH");

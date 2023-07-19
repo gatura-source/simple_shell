@@ -36,4 +36,5 @@ char *_strchr(const char *, int);
 char *_path(char *command);
 char *_basename(char *path);
 int _strcmp(char *str1, char *str2);
+int _env(void);
 #endif
