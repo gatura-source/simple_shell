@@ -18,8 +18,8 @@ extern char **environ;
 
 int _putchar(char c);
 int _puts(const char *);
-int inte(int, char **);
-int non_inte(int, char **);
+int inte(int, char **, char **);
+int non_inte(int, char **, char **);
 void fatal(char *, char *);
 void type_prompt(void);
 char *eof(char *);

@@ -9,15 +9,15 @@
  * Return: always 0
  */
 
-int main(int ac, char *av[])
+int main(int ac, char *av[], char *envp[])
 {
 	if (!isatty(STDIN_FILENO))
 	{
-		non_inte(ac, av);
+		non_inte(ac, av, envp);
 	}
 	else
 	{
-		inte(ac, av);
+		inte(ac, av, envp);
 	}
 	return (0);
 }

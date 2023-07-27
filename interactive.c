@@ -8,7 +8,7 @@
  * Return: status
  */
 
-int inte(int ac, char *av[])
+int inte(int ac, char *av[], char *en[])
 {
 	char **arguments;
 	char *lineptr;
@@ -34,7 +34,7 @@ int inte(int ac, char *av[])
 		path = _path(arguments[0]);
 		if (path != NULL)
 		{
-			if (execute(path, arguments, NULL) == -1)
+			if (execute(path, arguments, en) == -1)
 			{
 				perror(av[0]);
 			}
