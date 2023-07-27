@@ -19,7 +19,6 @@ int non_inte(int ac, char *av[])
 	len = 0;
 	if (getline(&lineptr, &len, stdin) == -1)
 	{
-		fatal(av[0]);
 		exit(0);
 	}
 	input_buffer = eof(lineptr);
@@ -35,6 +34,10 @@ int non_inte(int ac, char *av[])
 		{
 			perror(av[0]);
 		}
+	}
+	else
+	{
+		fatal(av[0], arguments[0]);
 	}
 	free(path);
 	free(lineptr);

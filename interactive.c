@@ -39,6 +39,10 @@ int inte(int ac, char *av[])
 				perror(av[0]);
 			}
 		}
+		else
+		{
+			fatal(av[0], arguments[0]);
+		}
 	}
 	free(path);
 	free(lineptr);

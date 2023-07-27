@@ -14,6 +14,10 @@ char **get_tokens(char *input)
 	char *token;
 	char delimiters[] = " ";
 
+	if (*input == '\0' || input  == NULL)
+	{
+		return (NULL);
+	}
 	counter = 0;
 	args = (char **)err_malloc(sizeof(char *) * (_strlen(input) + 1));
 	token = strtok(input, delimiters);
@@ -22,6 +26,11 @@ char **get_tokens(char *input)
 		args[counter] = token;
 		counter++;
 		token = strtok(NULL, delimiters);
+	}
+	if (counter == 0)
+	{
+		free(args);
+		return (NULL);
 	}
 	args[counter] = NULL;
 	return (args);

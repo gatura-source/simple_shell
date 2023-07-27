@@ -12,6 +12,10 @@ char *_basename(char *path)
 	char *last_sep;
 	char *current_sep;
 
+	if (path == NULL || *path == '\0' || check_spaces(path))
+	{
+		return (NULL);
+	}
 	last_sep = NULL;
 	current_sep = path;
 	while (*current_sep != '\0')

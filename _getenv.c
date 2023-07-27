@@ -8,17 +8,23 @@
  */
 
 
-char **_getenv(char *envariable)
+char *_getenv(char *envariable)
 {
+	size_t len;
 
-	int i;
-
-	for (i = 0; environ[i] != NULL; i++)
+	len = _strlen(envariable);
+	if (envariable == NULL || *envariable == '\0')
 	{
-		if (_strcmp(envariable, environ[i]) == 0)
+		return (NULL);
+	}
+
+	while (*environ != NULL)
+	{
+		if (_strncmp(envariable, *environ, len) == 0)
 		{
-			return (&environ[i]);
+			return (*environ + len + 1);
 		}
+		environ++;
 	}
 	return (NULL);
 }

@@ -14,6 +14,7 @@ void *err_malloc(unsigned int memsize)
 	ptr = malloc(memsize);
 	if (ptr == NULL)
 	{
+		free(ptr);
 		return (NULL);
 	}
 	return (ptr);
