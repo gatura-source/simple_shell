@@ -17,14 +17,29 @@ int non_inte(int ac, char *av[], char *en[])
 
 	lineptr = NULL;
 	len = 0;
+	arguments = NULL;
+	path = NULL;
 	if (getline(&lineptr, &len, stdin) == -1)
 	{
+		free(lineptr);
 		exit(0);
 	}
 	input_buffer = eof(lineptr);
+	if (input_buffer == NULL)
+	{
+		free(lineptr);
+		exit(0);
+	}
 	arguments = get_tokens(input_buffer);
 	if (arguments == NULL)
 	{
+		free(lineptr);
+		exit(0);
+	}
+	if (_strcmp(arguments[0], "exit") == 0)
+	{
+		free_tokens(arguments);
+		free(lineptr);
 		exit(0);
 	}
 	path = _path(arguments[0]);
@@ -40,8 +55,8 @@ int non_inte(int ac, char *av[], char *en[])
 		fatal(av[0], arguments[0]);
 	}
 	free(path);
+	free_tokens(arguments);
 	free(lineptr);
-	free(arguments);
 	ac = 0;
 	return (ac);
 }

@@ -11,20 +11,19 @@
 char *_getenv(char *envariable)
 {
 	size_t len;
+	char **env;
 
-	len = _strlen(envariable);
 	if (envariable == NULL || *envariable == '\0')
 	{
 		return (NULL);
 	}
-
-	while (*environ != NULL)
+	len = _strlen(envariable);
+	for (env = environ; *env != NULL; env++)
 	{
-		if (_strncmp(envariable, *environ, len) == 0)
+		if (_strncmp(envariable, *env, len) == 0 && (*env)[len] == '=')
 		{
-			return (*environ + len + 1);
+			return (*env + len + 1);
 		}
-		environ++;
 	}
 	return (NULL);
 }

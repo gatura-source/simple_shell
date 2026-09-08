@@ -13,7 +13,13 @@ void *_memset(void *str, int chr, size_t mem_space)
 	size_t i;
 	unsigned char val;
 	unsigned char *ptr;
+	void *start;
 
+	if (str == NULL)
+	{
+		return (NULL);
+	}
+	start = str;
 	ptr = (unsigned char *)str;
 	val = (unsigned char)chr;
 
@@ -22,5 +28,5 @@ void *_memset(void *str, int chr, size_t mem_space)
 		*ptr++ = val;
 	}
 
-	return (ptr);
+	return (start);
 }

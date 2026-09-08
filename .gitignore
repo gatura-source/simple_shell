@@ -1,0 +1,16 @@
+# Compiled binary
+hsh
+
+# Build artifacts
+obj/
+*.o
+*.a
+*.so
+
+# Core dumps / valgrind
+vgcore.*
+core
+
+# Editor / OS
+*.swp
+.DS_Store

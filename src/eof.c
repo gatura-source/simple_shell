@@ -10,7 +10,7 @@
 
 char *eof(char *input)
 {
-	if (*input == '\0' || input == NULL || check_spaces(input))
+	if (input == NULL || *input == '\0' || check_spaces(input))
 	{
 		return (NULL);
 	}

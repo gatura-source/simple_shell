@@ -14,25 +14,43 @@ char *_path(char *command)
 	char cmd_path[PATH_MAX];
 	char *p;
 	char *found_path;
+	size_t dirlen;
+	size_t cmdlen;
 
 	command = _basename(command);
+	if (command == NULL)
+	{
+		return (NULL);
+	}
 	if (_strcmp(command, "exit") == 0)
 	{
-		_exit(0);
-	}
-	if (_strcmp(command, "env") == 0)
-	{
-		_env();
+		return (NULL);
 	}
 	path = _getenv("PATH");
-	p = (char *)err_malloc(sizeof(char) * _strlen(path) + 1);
+	if (path == NULL)
+	{
+		return (NULL);
+	}
+	p = (char *)err_malloc(_strlen(path) + 1);
+	if (p == NULL)
+	{
+		return (NULL);
+	}
 	_strcpy(p, path);
+	cmdlen = _strlen(command);
 	dir = strtok(p, ":");
 	while (dir != NULL)
 	{
+		dirlen = _strlen(dir);
+		if (dirlen + cmdlen + 2 > PATH_MAX)
+		{
+			dir = strtok(NULL, ":");
+			continue;
+		}
+		_memset(cmd_path, 0, PATH_MAX);
 		_strcpy(cmd_path, dir);
 		_strncat(cmd_path, "/", 1);
-		_strncat(cmd_path, command, _strlen(command));
+		_strncat(cmd_path, command, cmdlen);
 		if (access(cmd_path, X_OK) == 0)
 		{
 			found_path = _strdup(cmd_path);
@@ -40,7 +58,6 @@ char *_path(char *command)
 			return (found_path);
 		}
 		dir = strtok(NULL, ":");
-		_memset(cmd_path, 0, PATH_MAX);
 	}
 	free(p);
 	return (NULL);
