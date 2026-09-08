@@ -19,9 +19,9 @@ int _strncmp(char *str1, char *str2, size_t len)
 	{
 		if (str1[i] != str2[i])
 		{
-			return (str1[i] - str2[2]);
+			return ((unsigned char)str1[i] - (unsigned char)str2[i]);
 		}
-		if (str1[i] == '\0' || str2[i] == '\0')
+		if (str1[i] == '\0')
 		{
 			return (0);
 		}
